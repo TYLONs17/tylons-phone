@@ -3,6 +3,8 @@
 
 import React, { useState, useEffect } from 'react';
 import './phone.css';
+import TYLONsLogo from '../icons/TYLONsLogo';
+import AuthButtons from '../layout/AuthButtons';
 
 export default function MagicMenuIndicator () {
   const [activeIndex, setActiveIndex] = useState(1); 
@@ -31,7 +33,13 @@ export default function MagicMenuIndicator () {
       <div className="phone">
         <div className="main-content">
           <nav className="top-nav" role="navigation">
-            <div className="logo">T</div>
+            <div className="logo">
+              <TYLONsLogo /> 
+            </div>
+
+            <div>
+              <AuthButtons />
+            </div>
             
             <div id="menuToggle">
               <input type="checkbox" />
@@ -47,6 +55,20 @@ export default function MagicMenuIndicator () {
               </ul>
             </div>
           </nav>
+          <main className="tabs">
+            <div>
+              <p>I Love Nerds</p>
+
+
+
+              
+              <br />
+              <br /><br /><br /><br /><br />
+              <br /><br /><br /><br /><br />
+
+              <p>GNite 😚 N Erdy🌃</p>
+            </div>
+          </main>
           <header className="bottom-nav">
             <nav className="navigation">
               <ul>

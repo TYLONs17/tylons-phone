@@ -1,5 +1,5 @@
-import Phone from "@/components/phone/Phone";
-import Image from "next/image";
+import Phone from "@/components/phone/Phone"
+
 
 export default function Home() {
   return (
