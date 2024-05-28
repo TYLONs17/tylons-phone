@@ -1,32 +1,34 @@
 'use client'
 
 
-import React, { useState, useEffect } from 'react';
-import './phone.css';
-import TYLONsLogo from '../icons/TYLONsLogo';
-import AuthButtons from '../layout/AuthButtons';
+import React, { useState, useEffect } from 'react'
+import './phone.css'
+import TYLONsLogo from '../icons/TYLONsLogo'
+import AuthButtons from '../layout/AuthButtons'
+import DBackground from '../theme/DBackrgound'
+import Messages from '../layout/pages/Messages'
 
 export default function MagicMenuIndicator () {
-  const [activeIndex, setActiveIndex] = useState(1); 
+  const [activeIndex, setActiveIndex] = useState(1) 
 
   useEffect(() => {
-    const listItems = document.querySelectorAll('.list');
-    const list1Items = document.querySelectorAll('.list1');
+    const listItems = document.querySelectorAll('.list')
+    const list1Items = document.querySelectorAll('.list1')
 
     const activeLink = function () {
-      const index = Array.from(this.parentNode.children).indexOf(this);
+      const index = Array.from(this.parentNode.children).indexOf(this)
 
-      setActiveIndex(index);
-    };
+      setActiveIndex(index)
+    }
 
-    listItems.forEach((item) => item.addEventListener('click', activeLink));
-    list1Items.forEach((item) => item.addEventListener('click', activeLink));
+    listItems.forEach((item) => item.addEventListener('click', activeLink))
+    list1Items.forEach((item) => item.addEventListener('click', activeLink))
 
     return () => {
-      listItems.forEach((item) => item.removeEventListener('click', activeLink));
-      list1Items.forEach((item) => item.removeEventListener('click', activeLink));
-    };
-  }, []);
+      listItems.forEach((item) => item.removeEventListener('click', activeLink))
+      list1Items.forEach((item) => item.removeEventListener('click', activeLink))
+    }
+  }, [])
 
   return (
     <div className="container">
@@ -55,20 +57,15 @@ export default function MagicMenuIndicator () {
               </ul>
             </div>
           </nav>
-          <main className="tabs">
-            <div>
-              <p>I Love Nerds</p>
 
+          
+            
+          <DBackground>
+            <main className="tabs">
+                <Messages />
+            </main>
+          </DBackground>
 
-
-              
-              <br />
-              <br /><br /><br /><br /><br />
-              <br /><br /><br /><br /><br />
-
-              <p>GNite 😚 N Erdy🌃</p>
-            </div>
-          </main>
           <header className="bottom-nav">
             <nav className="navigation">
               <ul>
@@ -121,5 +118,5 @@ export default function MagicMenuIndicator () {
       <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
       <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </div>
-  );
-};
+  )
+}

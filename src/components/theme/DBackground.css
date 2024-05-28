@@ -1,23 +1,20 @@
-*
-{
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
-}
+
 .dbg-body{
     overflow: hidden;
+    position: relative; 
 }
 .dbg-section{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    position: absolute;
+    margin: auto;
+    /* top: 10.1em;
+    left: 29.5em; */
+    width: 29em;
+    height: 496px;
     background: url("/images/bg2.jpg");
 /*   background-color:black; */
     background-size: cover;
     animation: animateBg 50s linear infinite;
-    z-index: -99;
+    z-index:  1;
 
 }
 

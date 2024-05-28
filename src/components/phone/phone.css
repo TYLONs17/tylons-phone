@@ -67,7 +67,7 @@
   position: relative;
   /* top: 25px;
   left: 25px; */
-  z-index: 1;
+  z-index: 11;
   -webkit-user-select: none;
   user-select: none;
 }
@@ -78,7 +78,7 @@
   position: absolute;
   cursor: pointer;
   opacity: 0;
-  z-index: 2;
+  z-index: 12;
 }
 #menuToggle span {
   display: flex;
@@ -88,7 +88,7 @@
   position: relative;
   background: #ffffff;
   border-radius: 3px;
-  z-index: 1;
+  z-index: 11;
   transform-origin: 5px 0px;
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
               background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
@@ -114,6 +114,7 @@
 }
 #menu {
   position: absolute;
+  z-index: 10;
   top: -50px;
   right: -28px;
   width: 200px;
@@ -140,11 +141,11 @@
   width: 100%;
   height: 100%;
   background: rgba(6, 6, 97, 0.5);
-  z-index: 0;
+  z-index: 10;
 }
 #menu li a {
   position: relative;
-  z-index: 1; 
+  z-index: 18; 
   text-decoration: none;
   /* color: rgb(29 78 216);  */
   opacity: 1;
@@ -169,7 +170,7 @@
 
 
 
-
+/* For Bottom Nav */
 .bottom-nav {
     position: absolute;
     bottom: 2.5em;
@@ -297,18 +298,22 @@
 .navigation ul li:nth-child(5).active ~ .indicator {
     transform: translateX(calc(70px * 4));
 }
+/* End Bottom Nav */
 
 
 
 /* For Tabs */
 .tabs {
+  position: relative;
+  z-index: 2;
   padding: 1.5em;
-  height: 31em;
+  height: 31em; 
   /* border: 1px solid red; */
-  background-color: blue;
+  
+  /* background-color: blue;
   background-image: url('/images/bg2.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center; */
 }
 /* End Tabs */
