@@ -39,3 +39,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ##### SITE IMAGES
 
 ![Day one screenshot](./public/screenshots/screencapture-localhost-3000-2024-05-27-13_13_03.png)
+
+![Day 2 and a half](./public/screenshots/image1.png)
