@@ -41,3 +41,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ![Day one screenshot](./public/screenshots/screencapture-localhost-3000-2024-05-27-13_13_03.png)
 
 ![Day 2 and a half](./public/screenshots/image1.png)
+
+#Day 3 & 4 (pre-final day) results
+![Home](./public//screenshots/Home.png)
+![Profile](./public//screenshots/Profile.png)
+![Messages](./public//screenshots/image1.png)
+![Photos](./public//screenshots/Photos.png)
+![Contact](./public//screenshots/Contact.png)

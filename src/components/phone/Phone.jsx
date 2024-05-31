@@ -1,15 +1,16 @@
 'use client'
 
-
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './phone.css'
 import TYLONsLogo from '../icons/TYLONsLogo'
 import AuthButtons from '../layout/AuthButtons'
 import DBackground from '../theme/DBackrgound'
-import Messages from '../layout/pages/Messages'
+import PagesComponent from '../layout/pages/PagesComponent'
+import { usePagesContext } from '../../context/AppContext'
 
-export default function MagicMenuIndicator () {
-  const [activeIndex, setActiveIndex] = useState(1) 
+export default function MagicMenuIndicator() {
+  const { state, dispatch } = usePagesContext()
+  const { currentPage } = state
 
   useEffect(() => {
     const listItems = document.querySelectorAll('.list')
@@ -18,7 +19,7 @@ export default function MagicMenuIndicator () {
     const activeLink = function () {
       const index = Array.from(this.parentNode.children).indexOf(this)
 
-      setActiveIndex(index)
+      dispatch({ type: 'SET_CURRENT_PAGE', payload: getPageByIndex(index) })
     }
 
     listItems.forEach((item) => item.addEventListener('click', activeLink))
@@ -28,7 +29,31 @@ export default function MagicMenuIndicator () {
       listItems.forEach((item) => item.removeEventListener('click', activeLink))
       list1Items.forEach((item) => item.removeEventListener('click', activeLink))
     }
-  }, [])
+  }, [dispatch])
+
+  const getPageByIndex = (index) => {
+    switch (index) {
+      case 0: return '/home'
+      case 1: return '/profile'
+      case 2: return '/messages'
+      case 3: return '/photos'
+      case 4: return '/contact'
+      default: return '/profile'
+    }
+  }
+
+  const getIndexByPage = (page) => {
+    switch (page) {
+      case '/home': return 0
+      case '/profile': return 1
+      case '/messages': return 2
+      case '/photos': return 3
+      case '/contact': return 4
+      default: return 1
+    }
+  }
+
+  const activeIndex = getIndexByPage(currentPage)
 
   return (
     <div className="container">
@@ -36,36 +61,30 @@ export default function MagicMenuIndicator () {
         <div className="main-content">
           <nav className="top-nav" role="navigation">
             <div className="logo">
-              <TYLONsLogo /> 
+              <TYLONsLogo />
             </div>
-
             <div>
               <AuthButtons />
             </div>
-            
-            <div id="menuToggle">
-              <input type="checkbox" />
+            <div id="menuToggle" >
+              <input type="checkbox" onClick={() => console.log('clicked')}/>
               <span></span>
               <span></span>
               <span></span>
-              <ul id="menu">
+              <ul id="menu" >
                 <li className={`list1 ${activeIndex === 0 ? 'active' : ''}`}><a href="#">Home</a></li>
                 <li className={`list1 ${activeIndex === 1 ? 'active' : ''}`}><a href="#">Profile</a></li>
                 <li className={`list1 ${activeIndex === 2 ? 'active' : ''}`}><a href="#">Messages</a></li>
                 <li className={`list1 ${activeIndex === 3 ? 'active' : ''}`}><a href="#">Photos</a></li>
-                <li className={`list1 ${activeIndex === 4 ? 'active' : ''}`}><a href="#">Settings</a></li>
+                <li className={`list1 ${activeIndex === 4 ? 'active' : ''}`}><a href="#">Contact</a></li>
               </ul>
             </div>
           </nav>
-
-          
-            
           <DBackground>
             <main className="tabs">
-                <Messages />
+              <PagesComponent />
             </main>
           </DBackground>
-
           <header className="bottom-nav">
             <nav className="navigation">
               <ul>
@@ -104,9 +123,9 @@ export default function MagicMenuIndicator () {
                 <li className={`list ${activeIndex === 4 ? 'active' : ''}`}>
                   <a href="#">
                     <span className="icon">
-                      <ion-icon name="settings-outline"></ion-icon>
+                    <ion-icon name="location-outline"></ion-icon>
                     </span>
-                    <span className="text">Settings</span>
+                    <span className="text">Contact</span>
                   </a>
                 </li>
                 <div className="indicator"></div>

@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useEffect, useReducer } from "react"
+import { createContext, useEffect, useReducer, useContext } from "react"
 
 
 const INITIAL_STATE = {
@@ -40,5 +40,11 @@ export const AppProvider = ({ children }) => {
             {children}
         </AppContext.Provider>
     )
+}
+
+
+// Custom hook to use the AppContext
+export const usePagesContext = () => {
+    return useContext(AppContext)
 }
 
